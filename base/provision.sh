@@ -46,3 +46,9 @@ if [ ! -f $VAGRANT_PROVISION/ja ];then
     ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
     touch $VAGRANT_PROVISION/ja
 fi
+
+if [ ! -f $VAGRANT_PROVISION/emacs ];then
+    echo "==== Install Emacs ===="
+    yum -y -q install emacs
+    touch $VAGRANT_PROVISION/emacs
+fi
