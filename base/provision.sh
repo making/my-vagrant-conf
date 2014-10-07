@@ -39,6 +39,14 @@ EOF
     touch $VAGRANT_PROVISION/maven
 fi
 
+
+if [ ! -f $VAGRANT_PROVISION/git ];then
+    echo "==== Install Git ===="
+    yum -y -q install git
+    touch $VAGRANT_PROVISION/git
+fi
+
+
 if [ ! -f $VAGRANT_PROVISION/ja ];then
     echo "==== Configure ja settings ===="
     sed -i -e 's/en_US/ja_JP/' /etc/sysconfig/i18n 
