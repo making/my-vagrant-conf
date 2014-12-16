@@ -11,16 +11,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "centos-65-x64"
+  # config.vm.box = "centos-70-x64"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-65-x64-virtualbox-puppet.box"
-
+  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-65-x64-virtualbox-puppet.box"  
+  #config.vm.box_url = "https://vagrantcloud.com/chef/boxes/centos-7.0/versions/1/providers/virtualbox.box"
+  
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network :forwarded_port, guest: 80, host: 8080
   config.vm.network :forwarded_port, guest: 8080, host: 8080
+  config.vm.network :forwarded_port, guest: 8443, host: 8443
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -121,9 +124,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #   chef.validation_client_name = "ORGNAME-validator"
 end
 
-Vagrant.configure("2") do |config|
-  config.proxy.http     = ENV['HTTP_PROXY']
-  config.proxy.https    = ENV['HTTPS_PROXY']
-  config.proxy.no_proxy = ENV['NO_PROXY']
-  # ... other stuff
-end
+# Vagrant.configure("2") do |config|
+#   config.proxy.http     = ENV['HTTP_PROXY']
+#   config.proxy.https    = ENV['HTTPS_PROXY']
+#   config.proxy.no_proxy = ENV['NO_PROXY']
+#   # ... other stuff
+# end

@@ -11,10 +11,10 @@ fi
 if [ ! -f $VAGRANT_PROVISION/jdk8 ];then
     echo "==== Install JDK8 ===="
     pushd /tmp > /dev/null
-    wget -q --no-check-certificate --no-cookies - --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u20-b26/jdk-8u20-linux-x64.rpm
+    wget -q --no-check-certificate --no-cookies - --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u25-b17/jdk-8u25-linux-x64.rpm
     rpm -ivh jdk*.rpm*
     cat <<'EOF' > /etc/profile.d/java.sh
-export JAVA_HOME=/usr/java/jdk1.8.0_20
+export JAVA_HOME=/usr/java/jdk1.8.0_25
 export PATH=$PATH:$JAVA_HOME/bin
 EOF
     popd > /dev/null
