@@ -62,5 +62,7 @@ fi
 if [ ! -f $VAGRANT_PROVISION/docker ];then
     echo "==== Install Docker ===="
     yum -y -q install docker docker-devel
+    chkconfig docker on
+    service docker start
     touch $VAGRANT_PROVISION/docker
 fi
