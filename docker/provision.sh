@@ -51,3 +51,11 @@ EOF
 #    firewall-cmd --reload
     touch $VAGRANT_PROVISION/docker
 fi
+
+if [ ! -f $VAGRANT_PROVISION/docker-compose ];then
+    echo "==== Install Docker Compose ===="
+    pushd /usr/bin
+    wget https://github.com/docker/compose/releases/download/1.2.0/docker-compose-Linux-x86_64 -O docker-compose
+    chmod +x docker-compose
+    touch $VAGRANT_PROVISION/docker-compose
+fi
