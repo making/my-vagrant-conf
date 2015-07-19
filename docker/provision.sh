@@ -55,7 +55,7 @@ fi
 if [ ! -f $VAGRANT_PROVISION/docker-compose ];then
     echo "==== Install Docker Compose ===="
     pushd /usr/bin
-    wget https://github.com/docker/compose/releases/download/1.2.0/docker-compose-Linux-x86_64 -O docker-compose
+    wget https://github.com/docker/compose/releases/download/1.3.2/docker-compose-`uname -s`-`uname -m` -O docker-compose
     chmod +x docker-compose
     touch $VAGRANT_PROVISION/docker-compose
 fi
