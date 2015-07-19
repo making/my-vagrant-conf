@@ -11,10 +11,10 @@ fi
 if [ ! -f $VAGRANT_PROVISION/jdk8 ];then
     echo "==== Install JDK8 ===="
     pushd /tmp > /dev/null
-    wget -q --no-check-certificate --no-cookies - --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u31-b13/jdk-8u31-linux-x64.rpm
+    wget -q --no-check-certificate --no-cookies - --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u51-b16/jdk-8u51-linux-x64.rpm
     rpm -ivh jdk*.rpm*
     cat <<'EOF' > /etc/profile.d/java.sh
-export JAVA_HOME=/usr/java/jdk1.8.0_31
+export JAVA_HOME=/usr/java/jdk1.8.0_51
 export PATH=$PATH:$JAVA_HOME/bin
 EOF
     popd > /dev/null
@@ -24,10 +24,10 @@ fi
 ## Maven
 if [ ! -f $VAGRANT_PROVISION/maven ];then
     echo "==== Install Maven ===="
-    MAVEN_VERSION=3.2.1
+    MAVEN_VERSION=3.3.3
     mkdir -p /opt/maven
     pushd /opt/maven > /dev/null
-    wget -q http://archive.apache.org/dist/maven/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz
+    wget -q http://ftp.yz.yamagata-u.ac.jp/pub/network/apache/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz
     tar xzf apache-maven-$MAVEN_VERSION-bin.tar.gz
     ln -s /opt/maven/apache-maven-$MAVEN_VERSION /opt/maven/maven3
     rm -f apache-maven-$MAVEN_VERSION-bin.tar.gz
