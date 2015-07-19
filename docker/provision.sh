@@ -33,7 +33,7 @@ if [ ! -f $VAGRANT_PROVISION/docker ];then
     # Thanks to http://qiita.com/jpshadowapps/items/a68173b4c044cfea2ab6
     echo "==== Install Docker ===="
     pushd /usr/bin
-    wget https://get.docker.io/builds/Linux/x86_64/docker-latest -O docker
+    wget https://get.docker.io/builds/`uname -s`/`uname -m`/docker-latest -O docker
     chmod +x docker
     pushd /etc/systemd/system
     wget https://raw.githubusercontent.com/docker/docker/master/contrib/init/systemd/docker.service
