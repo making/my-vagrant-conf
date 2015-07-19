@@ -37,8 +37,8 @@ if [ ! -f $VAGRANT_PROVISION/mysql ];then
     mkdir -p /vagrant/var/lib/mysql
     cp -f /vagrant/my.cnf /etc/my.cnf
     /etc/init.d/mysqld start
-    mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO app@localhost IDENTIFIED BY 'paSsw0rd';"
-    mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO app@'%' IDENTIFIED BY 'paSsw0rd';"
+    mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO app@localhost IDENTIFIED BY 'password';"
+    mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO app@'%' IDENTIFIED BY 'password';"
     mysql -u root -e 'FLUSH PRIVILEGES;'
     touch $VAGRANT_PROVISION/mysql
 fi
